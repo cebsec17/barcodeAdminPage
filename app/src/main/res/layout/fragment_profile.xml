@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="438dp"
+        android:layout_height="720dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="Arial Unicode MS"
+            android:text="Add a new User "
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/etUserID"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="Arial Unicode MS"
+            android:hint="User ID"
+
+            />
+
+        <TextView
+            android:id="@+id/tfErrorUserID"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="Arial Unicode MS"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="100"
+            android:fontFamily="Arial Unicode MS"
+            android:hint="Username" />
+
+        <TextView
+            android:id="@+id/tfErrorUsername"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="Arial Unicode MS"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/etMail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="Arial Unicode MS"
+            android:hint="E-Mail" />
+
+        <TextView
+            android:id="@+id/tfErrorMail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="Arial Unicode MS"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="Arial Unicode MS"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/tfErrorPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="Arial Unicode MS"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12dp" />
+
+        <CheckBox
+            android:id="@+id/cbAdmin"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="Arial Unicode MS"
+            android:text="Administrator Rights" />
+
+        <Button
+            android:id="@+id/btAddUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:backgroundTint="#F7F200"
+            android:fontFamily="Arial Unicode MS"
+            android:text="Add User"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
