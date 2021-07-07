@@ -11,13 +11,18 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
-            android:fontFamily="Arial Unicode MS"
             android:text="Add a new User "
             android:textColor="@color/black"
             android:textSize="30dp"
@@ -30,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:fontFamily="Arial Unicode MS"
+
             android:hint="User ID"
 
             />
@@ -40,7 +45,6 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="12dp" />
 
@@ -50,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="100"
-            android:fontFamily="Arial Unicode MS"
             android:hint="Username" />
 
         <TextView
@@ -58,7 +61,6 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="12dp" />
 
@@ -68,7 +70,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:fontFamily="Arial Unicode MS"
             android:hint="E-Mail" />
 
         <TextView
@@ -76,7 +77,6 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="12dp" />
 
@@ -86,7 +86,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:fontFamily="Arial Unicode MS"
             android:hint="Password"
             android:inputType="textPassword" />
 
@@ -95,7 +94,6 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="12dp" />
 
@@ -104,7 +102,6 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:text="Administrator Rights" />
 
         <Button
@@ -113,7 +110,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:backgroundTint="#F7F200"
-            android:fontFamily="Arial Unicode MS"
             android:text="Add User"
             android:textColor="@color/black"
             android:textStyle="bold" />
