@@ -1,64 +1,158 @@
 package com.example.navigation;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ScannerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.gms.vision.CameraSource;
+import com.google.android.gms.vision.Detector;
+import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.barcode.BarcodeDetector;
+
+import java.io.IOException;
+
+
 public class ScannerFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    SurfaceView surfaceView;
+    BarcodeDetector barcodeDetector;
+    int barcodeTyp;
+    CameraSource cameraSource;
+    int REQUEST_CAMERA_PERMISSION = 201;
+    TextView barcodeText;
+    String barcodeData;
 
     public ScannerFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ScannerFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ScannerFragment newInstance(String param1, String param2) {
-        ScannerFragment fragment = new ScannerFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scanner, container, false);
+        View view = inflater.inflate(R.layout.fragment_scanner, container, false);
+        surfaceView = view.findViewById(R.id.surface_view);
+        barcodeText = view.findViewById(R.id.barcode_text);
+        initialiseDetectorsAndSources();
+        return view;
     }
+
+    private void initialiseDetectorsAndSources() {
+
+        //Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
+
+        barcodeDetector = new BarcodeDetector.Builder(getContext())
+                .setBarcodeFormats(Barcode.ALL_FORMATS)
+                .build();
+
+        cameraSource = new CameraSource.Builder(getContext(), barcodeDetector)
+                .setRequestedPreviewSize(640, 480)
+                .setAutoFocusEnabled(true)
+                .setRequestedFps(30)
+                .build();
+
+
+
+
+
+
+        surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
+            @Override
+            public void surfaceCreated(SurfaceHolder holder) {
+                try {
+                    if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                        cameraSource.start(holder);
+
+                    } else {
+                        ActivityCompat.requestPermissions(getActivity(), new
+                                String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+
+
+            @Override
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+            }
+
+            @Override
+            public void surfaceDestroyed(SurfaceHolder holder) {
+                cameraSource.stop();
+            }
+        });
+
+
+        barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
+            @Override
+            public void release() {
+                // Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void receiveDetections(Detector.Detections<Barcode> detections) {
+                final SparseArray<Barcode> barcodes = detections.getDetectedItems();
+                if (barcodes.size() != 0) {
+
+
+                    barcodeText.post(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            barcodeData = barcodes.valueAt(0).displayValue;
+                            barcodeTyp = barcodes.valueAt(0).format;
+
+
+                            Intent i = new Intent(getActivity(), Details.class);
+                            i.putExtra("barcodeData", barcodeData);
+                            i.putExtra("barcodeTyp", barcodeTyp);
+                            startActivity(i);
+
+
+                        }
+                    });
+
+                }
+            }
+        });
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        cameraSource.release();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        initialiseDetectorsAndSources();
+    }
+
+
 }
