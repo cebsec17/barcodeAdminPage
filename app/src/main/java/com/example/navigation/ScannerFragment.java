@@ -115,7 +115,7 @@ public class ScannerFragment extends Fragment {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
                 if (barcodes.size() != 0) {
-
+                    barcodeDetector.release();
 
                     barcodeText.post(new Runnable() {
 
