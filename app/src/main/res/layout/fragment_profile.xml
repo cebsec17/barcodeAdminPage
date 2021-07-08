@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="438dp"
-        android:layout_height="720dp"
-        android:layout_gravity="center"
-        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:src="@drawable/logo" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+android:layout_marginTop="60dp"
             android:layout_marginBottom="40dp"
             android:text="Add a new User "
             android:textColor="@color/black"
@@ -35,10 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-
-            android:hint="User ID"
-
-            />
+            android:hint="User ID"/>
 
         <TextView
             android:id="@+id/tfErrorUserID"
@@ -113,8 +103,5 @@
             android:text="Add User"
             android:textColor="@color/black"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
-</FrameLayout>

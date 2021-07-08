@@ -2,23 +2,24 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     xmlns:tools = "http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height = "wrap_content"
+    android:layout_height = "match_parent"
     tools:context = ".MainActivity"
     android:gravity="center"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400px"
+        android:layout_height="400px"
         android:layout_gravity="center"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo_square"
+        />
 
     <TextView
         android:text = "Barcode Scanner"
         android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
         android:id = "@+id/textview"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -40,7 +41,7 @@
         android:id = "@+id/username"
         android:layout_width = "250dp"
         android:layout_height = "wrap_content"
-        android:hint = "Enter Username"
+        android:hint = "Username"
         android:focusable = "true"
         android:textColorHighlight = "#ff7eff15"
         android:ems="10"/>
@@ -57,21 +58,21 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Password"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="50dp"/>
 
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button"
             android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/textview"
             android:layout_toLeftOf="@+id/textview"
@@ -83,7 +84,7 @@
         <Button
             android:id="@+id/button2"
             android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/textview"
             android:layout_toRightOf="@+id/textview"

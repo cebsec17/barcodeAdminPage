@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+       /* androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.id.action_bar_bg));*/
+
         bottomNavigationView = findViewById(R.id.bnv_Main);
         replace(new ProjectFragment());
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {

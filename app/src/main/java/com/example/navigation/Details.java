@@ -1,6 +1,5 @@
 package com.example.navigation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -15,7 +14,7 @@ public class Details extends AppCompatActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.details);
+        setContentView(R.layout.fragment_details);
 
         barcodeText = findViewById(R.id.barcode_text);
         barcodeType = findViewById(R.id.barcode_type);
@@ -29,4 +28,3 @@ public class Details extends AppCompatActivity {
     }
 
 }
-
