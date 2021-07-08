@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ public class Details extends AppCompatActivity {
     private TextView barcodeText;
     private TextView barcodeType;
     Button btBackToScanner;
+
+    private String TAG ="MyDetails";
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -39,19 +42,19 @@ public class Details extends AppCompatActivity {
         barcodeType.setText(Integer.toString(barcodeTyp));
 
        btBackToScanner.setOnClickListener(v -> {
-            BackToScanner(new ScannerFragment());
+            BackToScanner();
         });
 
 
     }
 
-   private void BackToScanner(Fragment fragment) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame, fragment);
-        ft.addToBackStack(null);
-        ft.commit();
-
-
+   private void BackToScanner() {
+       if ( getFragmentManager().getBackStackEntryCount() > 0)
+       {
+           getFragmentManager().popBackStack();
+           return;
+       }
+       super.onBackPressed();
     }
 
 }
