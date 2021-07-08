@@ -8,8 +8,8 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="400px"
-        android:layout_height="400px"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_gravity="center"
         android:src="@drawable/logo_square"
         />
@@ -19,9 +19,9 @@
         android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
         android:id = "@+id/textview"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="20dp"
-        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="@color/black"
         />
@@ -31,8 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
         android:id = "@+id/login_text"
-        android:layout_marginBottom="50dp"
-        android:textSize="16dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="12dp"
         android:textColor="@color/black"
         />
 
@@ -42,6 +42,7 @@
         android:layout_width = "250dp"
         android:layout_height = "wrap_content"
         android:hint = "Username"
+        android:textSize="12dp"
         android:focusable = "true"
         android:textColorHighlight = "#ff7eff15"
         android:ems="10"/>
@@ -55,6 +56,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
+        android:textSize="12dp"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Password"
@@ -71,8 +73,8 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/textview"
             android:layout_toLeftOf="@+id/textview"
@@ -83,8 +85,8 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/textview"
             android:layout_toRightOf="@+id/textview"
