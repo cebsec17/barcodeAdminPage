@@ -39,7 +39,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Scan here your barcode to get its information."
+        android:text="Scan your barcode here to get its information."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/surface_view"
