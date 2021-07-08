@@ -130,7 +130,6 @@ public class ScannerFragment extends Fragment {
                             i.putExtra("barcodeTyp", barcodeTyp);
                             startActivity(i);
 
-
                         }
                     });
 
