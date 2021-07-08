@@ -1,7 +1,5 @@
 package com.example.navigation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,26 +47,27 @@ public class Login extends Activity {
         username = etUsername.getText().toString();
         password = etPassword.getText().toString();
 
-        Log.i(TAG, ""+username);
-        Log.i(TAG, ""+password);
-
         if(!username.equals("") && !password.equals("")){
-            Log.i(TAG, "1"+username);
-            Log.i(TAG, "1"+password);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
 
-                Log.i(TAG, "2"+username);
-                Log.i(TAG, "2"+password);
-                Log.i(TAG, ""+response);
+                Intent intent;
 
-                if (response.equals("Success")) {
+                switch (response){
+                    case "SuccessAdmin":
+                        intent = new Intent(Login.this, HomeAdmin.class);
+                        startActivity(intent);
+                        finish();
+                        break;
 
-                    Log.i(TAG, "Bis hier geht es");
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else if (response.equals("Failure")) {
-                    Toast.makeText(this, "Invalid Login", Toast.LENGTH_SHORT).show();
+                    case "SuccessUser":
+                        intent = new Intent(Login.this, HomeUser.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case "Failure":
+                        Toast.makeText(this, "Invalid Login", Toast.LENGTH_SHORT).show();
+                        break;
                 }
             }, error -> Toast.makeText(this, error.toString().trim(), Toast.LENGTH_SHORT).show())
             {
