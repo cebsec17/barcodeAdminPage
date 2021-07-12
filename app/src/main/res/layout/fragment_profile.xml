@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="438dp"
-        android:layout_height="720dp"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -17,32 +16,28 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
-            android:fontFamily="Arial Unicode MS"
             android:text="Add a new User "
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
 
         <EditText
             android:id="@+id/etUserID"
             android:layout_width="250dp"
+            android:textSize="12dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:fontFamily="Arial Unicode MS"
-            android:hint="User ID"
-
-            />
+            android:hint="User ID"/>
 
         <TextView
             android:id="@+id/tfErrorUserID"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="12dp" />
+            android:textSize="8dp" />
 
         <EditText
             android:id="@+id/etUsername"
@@ -50,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="100"
-            android:fontFamily="Arial Unicode MS"
+            android:textSize="12dp"
             android:hint="Username" />
 
         <TextView
@@ -58,17 +53,16 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="12dp" />
+            android:textSize="8dp" />
 
         <EditText
             android:id="@+id/etMail"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textSize="12dp"
             android:ems="10"
-            android:fontFamily="Arial Unicode MS"
             android:hint="E-Mail" />
 
         <TextView
@@ -76,9 +70,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="12dp" />
+            android:textSize="8dp" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -86,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:fontFamily="Arial Unicode MS"
+            android:textSize="12dp"
             android:hint="Password"
             android:inputType="textPassword" />
 
@@ -95,16 +88,15 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="12dp" />
+            android:textSize="8dp" />
 
         <CheckBox
             android:id="@+id/cbAdmin"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="Arial Unicode MS"
+            android:textSize="12dp"
             android:text="Administrator Rights" />
 
         <Button
@@ -113,12 +105,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:backgroundTint="#F7F200"
-            android:fontFamily="Arial Unicode MS"
             android:text="Add User"
             android:textColor="@color/black"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
-</FrameLayout>
