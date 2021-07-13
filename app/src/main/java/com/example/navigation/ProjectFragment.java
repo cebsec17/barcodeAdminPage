@@ -1,5 +1,6 @@
 package com.example.navigation;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -20,7 +21,7 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 @SuppressWarnings("ALL")
-public class ProjectFragment extends ListFragment implements View.OnClickListener {
+public class ProjectFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,14 +80,16 @@ public class ProjectFragment extends ListFragment implements View.OnClickListene
         //Array Adapter
 
         ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Projects,
-                android.R.layout.simple_expandable_list_item_1);
+                android.R.layout.simple_list_item_1);
         setListAdapter(arrayAdapter);
-        getListView().setOnClickListener(this);
+        getListView().setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), newProjectPage.class);
+        startActivity(intent);
     }
 
 
-
-    public void onItemClicked(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getActivity(),"", Toast.LENGTH_SHORT).show();
-    }
 }
