@@ -8,5 +8,5 @@
     <item
         android:id="@+id/scanner"
         android:title="Scanner"
-        android:icon="@drawable/camera" />
+        android:icon="@drawable/icon_didi" />
 </menu>
