@@ -8,7 +8,7 @@
     <Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/logo"
+        android:background="@drawable/logo_ssi"
         />
 
     <TextView
