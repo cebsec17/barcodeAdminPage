@@ -36,7 +36,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeUser"></activity>
-        <activity android:name=".Details">
+        <activity android:name=".Details"></activity>
+        <activity android:name=".newProjectPage">
+
         </activity>
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"

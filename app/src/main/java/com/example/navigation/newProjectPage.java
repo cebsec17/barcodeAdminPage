@@ -22,7 +22,7 @@ public class newProjectPage extends AppCompatActivity implements AdapterView.OnI
     private String TAG = "Project";
 
     ListView simpleList;
-    String countryList[] = {"India", "China", "australia", "Portugle", "America", "NewZealand"};
+    String countryList[] = {"Barcode1", "Barcode2", "Barcode3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
