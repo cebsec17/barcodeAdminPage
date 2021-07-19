@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,10 +16,15 @@ import java.util.Collections;
 public class AddProject extends AppCompatActivity {
 
     TextView tvBarcodeType;
+    Button btAddProject;
     boolean[] selectedTypes;
     ArrayList<Integer> barcodeTypeList = new ArrayList<>();
-    String[] BarcodeTypesArray = {"Barcode A", "BarcodeB", "BarcodeC", "BarcodeD",
-            "BarcodeE", "BarcodeF", "BarcodeG"};
+    String[] BarcodeTypesArray = {"Barcode A", "Barcode B", "Barcode C", "Barcode D",
+            "Barcode E", "Barcode F", "Barcode G", "Barcode H", "Barcode I", "Barcode J", "Barcode K",
+            "Barcode L", "Barcode M", "Barcode N", "Barcode O", "Barcode P", "Barcode Q", "Barcode R",
+            "Barcode S", "Barcode T", "Barcode U"};
+
+    EditText projectName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,11 @@ public class AddProject extends AppCompatActivity {
         setContentView(R.layout.activity_addproject);
 
         tvBarcodeType = findViewById(R.id.tv_barcodeType);
+        projectName = findViewById(R.id.etProjectName);
+        btAddProject = findViewById(R.id.btAddProject);
+        btAddProject.setOnClickListener(v -> {
+            finish();
+        });
 
         selectedTypes = new boolean[BarcodeTypesArray.length];
 
@@ -44,8 +56,10 @@ public class AddProject extends AppCompatActivity {
                         if(b){
                             barcodeTypeList.add(i);
                             Collections.sort(barcodeTypeList);
+                            projectName.getText().toString();
                         }else{
                             barcodeTypeList.remove(i);
+                            projectName.getText().toString();
                         }
                     }
                 });
@@ -59,6 +73,7 @@ public class AddProject extends AppCompatActivity {
                             stringBuilder.append(BarcodeTypesArray[barcodeTypeList.get(j)]);
                             if (j != barcodeTypeList.size()-1){
                                 stringBuilder.append(", ");
+                                projectName.getText().toString();
                             }
                         }
 

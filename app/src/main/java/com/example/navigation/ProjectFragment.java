@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class ProjectFragment extends ListFragment implements AdapterView.OnItemC
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ImageButton btNewProject;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -61,6 +63,7 @@ public class ProjectFragment extends ListFragment implements AdapterView.OnItemC
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -69,8 +72,17 @@ public class ProjectFragment extends ListFragment implements AdapterView.OnItemC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_project, container, false);
+        View view = inflater.inflate(R.layout.fragment_project, container, false);
+        btNewProject = view.findViewById(R.id.btNewProject);
+        btNewProject.setOnClickListener(v -> {
+            btNewProject();
+        });
+        return view;
+    }
 
+    private void btNewProject() {
+        Intent i = new Intent(getActivity(), AddProject.class);
+        startActivity(i);
     }
 
     @Override
@@ -90,6 +102,8 @@ public class ProjectFragment extends ListFragment implements AdapterView.OnItemC
         Intent intent = new Intent(getActivity(), newProjectPage.class);
         startActivity(intent);
     }
+
+
 
 
 }

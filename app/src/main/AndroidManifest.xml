@@ -26,7 +26,7 @@
        </activity-->
 
 <!--Admin-->
-        <activity android:name=".AddProject">
+        <activity android:name=".HomeAdmin">
 
 
             <intent-filter>
@@ -37,6 +37,7 @@
         </activity>
         <activity android:name=".HomeUser"></activity>
         <activity android:name=".Details"></activity>
+        <activity android:name=".AddProject"></activity>
         <activity android:name=".newProjectPage">
 
         </activity>

@@ -27,7 +27,7 @@
     <EditText
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:id="@+id/etUsername"
+        android:id="@+id/etProjectName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -55,7 +55,7 @@
         />
 
     <Button
-        android:id="@+id/btAddUser"
+        android:id="@+id/btAddProject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
