@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddProject"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/logo_ssi"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Add A New Project"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="12dp"
+        android:hint="Project Name"
+        android:textColorHint="@color/black"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_barcodeType"
+        android:hint="select Barcode Types"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="#ba2d20"
+        android:padding="12dp"
+        android:textSize="12dp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:drawablePadding="1dp"
+        android:background="@drawable/border"
+        />
+
+    <Button
+        android:id="@+id/btAddUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#F7F200"
+        android:text="Add Project"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+</LinearLayout>
