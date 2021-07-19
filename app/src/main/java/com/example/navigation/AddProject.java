@@ -24,6 +24,7 @@ public class AddProject extends AppCompatActivity {
             "Barcode L", "Barcode M", "Barcode N", "Barcode O", "Barcode P", "Barcode Q", "Barcode R",
             "Barcode S", "Barcode T", "Barcode U"};
 
+
     EditText projectName;
 
     @Override
