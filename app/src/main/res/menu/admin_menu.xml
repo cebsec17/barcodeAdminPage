@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/project"
-        android:title="Project"
-        android:icon="@drawable/folder" />
+        android:icon="@drawable/icon_folder"
+        android:title="Projects" />
 
     <item
         android:id="@+id/scanner"
         android:title="Scanner"
-        android:icon="@drawable/camera" />
+        android:icon="@drawable/icon_scanner" />
 
     <item
         android:id="@+id/profile"
-        android:title="Profile"
-        android:icon="@drawable/person" />
+        android:icon="@drawable/icon_didi"
+        android:title="Add User" />
 </menu>
