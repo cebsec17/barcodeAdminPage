@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation">
-        <activity android:name=".newProjectPage"></activity>
+        <activity android:name=".newProjectPage">
+
+
+        </activity>
         <!--
        Standard
 
@@ -36,6 +39,7 @@
         </activity>
         <activity android:name=".HomeUser" />
         <activity android:name=".Details"></activity>
+        <activity android:name=".scanner"></activity>
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />
