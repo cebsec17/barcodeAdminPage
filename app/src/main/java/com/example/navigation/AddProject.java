@@ -5,13 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class AddProject extends AppCompatActivity {
 
@@ -24,8 +42,14 @@ public class AddProject extends AppCompatActivity {
             "Barcode L", "Barcode M", "Barcode N", "Barcode O", "Barcode P", "Barcode Q", "Barcode R",
             "Barcode S", "Barcode T", "Barcode U"};
 
+    private String TAG = "AddActivity";
 
-    EditText projectName;
+    private final String URL = "http://172.28.57.146/project/insert.php";
+    private String pn="";
+    private String pid="";
+
+    EditText etProjectName;
+    EditText etProjectID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +57,47 @@ public class AddProject extends AppCompatActivity {
         setContentView(R.layout.activity_addproject);
 
         tvBarcodeType = findViewById(R.id.tv_barcodeType);
-        projectName = findViewById(R.id.etProjectName);
+        etProjectName = findViewById(R.id.etProjectName);
         btAddProject = findViewById(R.id.btAddProject);
+        etProjectID = findViewById(R.id.etProjectID);
+
         btAddProject.setOnClickListener(v -> {
+
+            if(!etProjectName.getText().toString().equals("")&&!etProjectID.getText().toString().equals("")){
+
+                pn = etProjectName.getText().toString();
+                pid = etProjectID.getText().toString();
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
+
+                    Log.i(TAG, "zzz"+ response);
+
+                    if (response.equals("Success")) {
+                        Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show();
+                        etProjectName.setText("");
+                        etProjectID.setText("");
+
+                        Log.i(TAG, "zzz");
+
+                    } else if (response.equals("Failure")) {
+                        Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }, error -> Toast.makeText(this, error.toString().trim(), Toast.LENGTH_SHORT).show())
+                {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> data = new HashMap<>();
+                        data.put("pid", pid);
+                        data.put("projektname", pn);
+                        Log.i(TAG, ""+data);
+                        return data;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(stringRequest);
+            }
+            Log.i(TAG, "bis hier gehts 2");
+
             finish();
         });
 
@@ -57,10 +119,10 @@ public class AddProject extends AppCompatActivity {
                         if(b){
                             barcodeTypeList.add(i);
                             Collections.sort(barcodeTypeList);
-                            projectName.getText().toString();
+                            etProjectName.getText().toString();
                         }else{
                             barcodeTypeList.remove(i);
-                            projectName.getText().toString();
+                            etProjectName.getText().toString();
                         }
                     }
                 });
@@ -74,7 +136,7 @@ public class AddProject extends AppCompatActivity {
                             stringBuilder.append(BarcodeTypesArray[barcodeTypeList.get(j)]);
                             if (j != barcodeTypeList.size()-1){
                                 stringBuilder.append(", ");
-                                projectName.getText().toString();
+                                etProjectName.getText().toString();
                             }
                         }
 
@@ -100,9 +162,12 @@ public class AddProject extends AppCompatActivity {
 
                     }
                 });
-
+Log.i(TAG, "bis hier gehts");
                 builder.show();
             }
         });
+
+
+
     }
 }

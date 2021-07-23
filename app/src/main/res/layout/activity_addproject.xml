@@ -27,6 +27,17 @@
     <EditText
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:id="@+id/etProjectID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="12dp"
+        android:hint="Project ID"
+        android:textColorHint="@color/black"/>
+
+    <EditText
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:id="@+id/etProjectName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
