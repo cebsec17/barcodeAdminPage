@@ -51,6 +51,7 @@ public class ScannerFragment extends Fragment {
         surfaceView = view.findViewById(R.id.surface_view);
         barcodeText = view.findViewById(R.id.barcode_text);
         initialiseDetectorsAndSources();
+
         return view;
     }
 

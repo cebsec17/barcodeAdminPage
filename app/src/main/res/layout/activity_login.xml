@@ -11,7 +11,7 @@
         android:layout_width="200px"
         android:layout_height="200px"
         android:layout_gravity="center"
-        android:src="@drawable/logo_square"
+        android:src="@drawable/logo_barcodescanner_gelb"
         />
 
     <TextView

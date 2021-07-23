@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -34,9 +35,13 @@ import java.net.URL;
 //@SuppressWarnings("ALL")
 public class ProjectFragment extends Fragment implements AdapterView.OnItemClickListener {
 
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ImageButton btNewProject;
 
+    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -47,6 +52,7 @@ public class ProjectFragment extends Fragment implements AdapterView.OnItemClick
     private final String TAG = "MyJson";
 
     public ProjectFragment() {
+        // Required empty public constructor
     }
 
     /**
@@ -75,7 +81,6 @@ public class ProjectFragment extends Fragment implements AdapterView.OnItemClick
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
 
@@ -83,14 +88,19 @@ public class ProjectFragment extends Fragment implements AdapterView.OnItemClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_project, container, false);
-
-        listView = view.findViewById(R.id.list);
-        getJSON("http://172.28.57.24/login/getProjectData.php");
-
+        View view = inflater.inflate(R.layout.fragment_project, container, false);
+        btNewProject = view.findViewById(R.id.btNewProject);
+        btNewProject.setOnClickListener(v -> {
+            btNewProject();
+        });
         listView.setOnItemClickListener(this::onItemClick);
-
         return view;
+
+    }
+
+    private void btNewProject() {
+        Intent i = new Intent(getActivity(), AddProject.class);
+        startActivity(i);
     }
 
     @Override
@@ -99,15 +109,15 @@ public class ProjectFragment extends Fragment implements AdapterView.OnItemClick
 
         //Array Adapter
 
-       /* ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Projects,
+        ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Projects,
                 android.R.layout.simple_list_item_1);
         setListAdapter(arrayAdapter);
-        getListView().setOnItemClickListener(this); */
+        getListView().setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        intent = new Intent(getActivity(), newProjectPage.class);
+        Intent intent = new Intent(getActivity(), newProjectPage.class);
         startActivity(intent);
     }
 
