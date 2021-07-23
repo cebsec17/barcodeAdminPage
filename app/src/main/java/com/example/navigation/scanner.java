@@ -4,17 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
@@ -23,8 +18,7 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-
-public class ScannerFragment extends Fragment {
+public class scanner extends AppCompatActivity {
 
     SurfaceView surfaceView;
     BarcodeDetector barcodeDetector;
@@ -34,35 +28,26 @@ public class ScannerFragment extends Fragment {
     TextView barcodeText;
     String barcodeData;
 
-    public ScannerFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_scanner);
 
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_scanner, container, false);
-        surfaceView = view.findViewById(R.id.surface_view);
-        barcodeText = view.findViewById(R.id.barcode_text);
+        surfaceView = findViewById(R.id.surface_view);
+        barcodeText = findViewById(R.id.barcode_text);
         initialiseDetectorsAndSources();
-        return view;
     }
 
     private void initialiseDetectorsAndSources() {
 
         //Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
 
-        barcodeDetector = new BarcodeDetector.Builder(getContext())
+        barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
                 .build();
 
-        cameraSource = new CameraSource.Builder(getContext(), barcodeDetector)
+        cameraSource = new CameraSource.Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(640, 480)
                 .setAutoFocusEnabled(true)
                 .setRequestedFps(30)
@@ -77,11 +62,11 @@ public class ScannerFragment extends Fragment {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
                 try {
-                    if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(getApplication(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                         cameraSource.start(holder);
 
                     } else {
-                        ActivityCompat.requestPermissions(getActivity(), new
+                        ActivityCompat.requestPermissions(scanner.this, new
                                 String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                     }
 
@@ -125,7 +110,7 @@ public class ScannerFragment extends Fragment {
                             barcodeTyp = barcodes.valueAt(0).format;
 
 
-                            Intent i = new Intent(getActivity(), Details.class);
+                            Intent i = new Intent(scanner.this, Details.class);
                             i.putExtra("barcodeData", barcodeData);
                             i.putExtra("barcodeTyp", barcodeTyp);
                             startActivity(i);
@@ -152,6 +137,4 @@ public class ScannerFragment extends Fragment {
 
         initialiseDetectorsAndSources();
     }
-
-
 }

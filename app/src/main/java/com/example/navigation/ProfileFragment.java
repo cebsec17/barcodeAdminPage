@@ -128,6 +128,7 @@ public class ProfileFragment extends Fragment {
                     etPassword.setText("");
                     cbAdmin.setChecked(false);
                     cbAdmin.setSelected(false);
+                    adminr = 0;
                 } else if (response.equals("Failure")) {
                     Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                 }
@@ -148,6 +149,5 @@ public class ProfileFragment extends Fragment {
             RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
             requestQueue.add(stringRequest);
         }
-
     }
 }
