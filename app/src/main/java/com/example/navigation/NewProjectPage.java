@@ -17,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class newProjectPage extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class NewProjectPage extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private String TAG = "Project";
 
@@ -29,7 +29,7 @@ public class newProjectPage extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_project_page);
 
-        simpleList = findViewById(R.id.list1);
+        simpleList = findViewById(R.id.listView);//cr
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countryList);
         simpleList.setAdapter(arrayAdapter);
         simpleList.setOnItemClickListener((parent, view, position, id) -> {

@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation">
-        <activity android:name=".newProjectPage">
+        <activity android:name=".NewProjectPage">
 
 
         </activity>
@@ -43,7 +43,7 @@
         <activity android:name=".HomeUser" />
         <activity android:name=".Details"></activity>
         <activity android:name=".AddProject"></activity>
-        <activity android:name=".newProjectPage">
+        <activity android:name=".NewProjectPage">
 
         </activity>
         <activity android:name=".scanner"></activity>
