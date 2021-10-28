@@ -44,7 +44,7 @@ public class AddProject extends AppCompatActivity {
 
     private String TAG = "AddActivity";
 
-    private final String URL = "http://172.28.57.146/project/insert.php";
+    private final String URL = "http://10.0.2.2/project/insert.php";
     private String pn="";
     private String pid="";
 

@@ -23,7 +23,7 @@ public class Login extends Activity {
     EditText etUsername, etPassword;
 
     private String username, password;
-    private final String URL = "http://172.28.57.24/login/login.php";
+    private final String URL = "http://10.0.2.2/login/login2.php";
 
     private static final String TAG = "MyActivity";
 

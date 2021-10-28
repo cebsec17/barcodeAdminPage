@@ -21,19 +21,17 @@
         </activity>
         <!--
        Standard
-
-        <activity android:name=".Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-       </activity
         -->
+                <activity android:name=".Login">
+                    <!--intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter-->
+               </activity>
+
         <!-- Admin -->
         <activity android:name=".HomeAdmin">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,9 +41,8 @@
         <activity android:name=".HomeUser" />
         <activity android:name=".Details"></activity>
         <activity android:name=".AddProject"></activity>
-        <activity android:name=".NewProjectPage">
+        <!--activity android:name=".NewProjectPage"></activity-->
 
-        </activity>
         <activity android:name=".scanner"></activity>
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"

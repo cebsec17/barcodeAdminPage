@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment {
 
     private String TAG = "AddActivity";
 
-    private final String URL = "http://172.28.57.24/login/insert.php";
+    private final String URL = "http://10.0.2.2/login/insert.php";
     private String username;
     private String mail;
     private String password;
