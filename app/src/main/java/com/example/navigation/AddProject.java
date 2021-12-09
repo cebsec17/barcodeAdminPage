@@ -49,12 +49,12 @@ public class AddProject extends AppCompatActivity {
     private String pid="";
 
     EditText etProjectName;
-    EditText etProjectID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addproject);
+        EditText etProjectID;
 
         tvBarcodeType = findViewById(R.id.tv_barcodeType);
         etProjectName = findViewById(R.id.etProjectName);
