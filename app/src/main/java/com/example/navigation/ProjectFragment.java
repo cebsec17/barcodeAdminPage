@@ -84,11 +84,11 @@ public class ProjectFragment extends Fragment implements AdapterView.OnItemClick
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_project, container, false);
-
+/*
         listView = view.findViewById(R.id.listView);
-        getJSON("http://172.28.57.24/login/getProjectData.php");
-
-        listView.setOnItemClickListener(this::onItemClick);
+        getJSON("http://10.0.2.2/login/getProjectData.php");
+*/
+        //listView.setOnItemClickListener(this::onItemClick);
 
         return view;
     }

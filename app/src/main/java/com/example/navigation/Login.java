@@ -14,6 +14,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +25,7 @@ public class Login extends Activity {
     EditText etUsername, etPassword;
 
     private String username, password;
-    private final String URL = "http://172.28.57.24/login/login.php";
+    private final String URL = "http://10.0.2.2/login/login3.php";
 
     private static final String TAG = "MyActivity";
 
@@ -43,14 +45,50 @@ public class Login extends Activity {
         b2.setOnClickListener(v -> finish());
     }
 
+    public static final String md5(final String s)
+    {
+        try
+        {
+            MessageDigest digest = java.security.MessageDigest
+                    .getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++)
+            {
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while (h.length() < 2)
+                    h = "0" + h;
+                hexString.append(h);
+            }
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     public void login(View view){
         username = etUsername.getText().toString();
-        password = etPassword.getText().toString();
+        password = md5(etPassword.getText().toString());
+
+        Log.i(TAG, "Es geht");
+
+        Log.i(TAG, "username "+username);
+
+        Log.i(TAG, "password "+password);
 
         if(!username.equals("") && !password.equals("")){
+
+            Log.i(TAG, "username "+ username+" password "+password);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
 
                 Intent intent;
+
+                Log.i(TAG, "response "+response);
 
                 switch (response){
                     case "SuccessAdmin":
@@ -79,6 +117,9 @@ public class Login extends Activity {
                     return data;
                 }
             };
+
+            Log.i(TAG, "sr " + stringRequest);
+
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }
